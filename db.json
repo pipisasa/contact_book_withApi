@@ -1,0 +1,34 @@
+{
+  "contacts": [
+    {
+      "name": "Contact 2",
+      "phone": "070040256546465465",
+      "isEdit": false,
+      "id": 1
+    },
+    {
+      "name": "Contact 3",
+      "phone": "0700402161",
+      "isEdit": false,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Contact 4",
+      "phone": "0700402161",
+      "isEdit": false
+    },
+    {
+      "id": 4,
+      "name": "Contact 5",
+      "phone": "0700402161",
+      "isEdit": false
+    },
+    {
+      "id": 5,
+      "name": "Contact 6",
+      "phone": "0700402161",
+      "isEdit": false
+    }
+  ]
+}

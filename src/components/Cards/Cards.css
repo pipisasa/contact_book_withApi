@@ -1,0 +1,96 @@
+.card-list{
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.card-item{
+    padding: 1% 5%;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+    width: 100%;
+    margin: 0 5px 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-item h2{
+    margin: 0;
+    font-size: 3rem;
+}
+
+.card-item p{
+    margin: 0;
+    font-size: 1rem;
+}
+
+.card-edit{
+    width: 20rem;
+}
+
+.card-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 3rem;
+}
+
+.btn-edit, .btn-delete{
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-edit{
+    background: url('../img/edit.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(-135deg);
+    padding: 0.6rem 0.2rem;
+}
+
+.btn-delete{
+    background: url('../img/delete.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 0.6rem;
+}
+
+.edit-inputs p{
+    margin: 5px 0px 0px 0px;
+}
+
+.edit-inputs input{
+    width: 100%;
+    height: 20px;
+    font-family: arcade;
+    color: #c7c7c7;
+    font-size: 1rem;
+    background: #000;
+    border: #c7c7c7 solid 1px;
+}
+
+.edit-inpt-btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between
+}
+
+.edit-inpt-btns button{
+    margin-top: 10px;
+    padding: 5px;
+    background: #000;
+    color: #c7c7c7;
+    font-family: arcade;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 40%;
+}
+.edit-inpt-btns button:hover{
+    background: #c7c7c7;
+    color: black;
+}
