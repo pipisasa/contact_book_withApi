@@ -1,34 +1,19 @@
 {
   "contacts": [
     {
-      "name": "Contact 2",
-      "phone": "070040256546465465",
-      "isEdit": false,
-      "id": 1
+      "name": "qwerty",
+      "phone": "986453128456123",
+      "id": 8
     },
     {
-      "name": "Contact 3",
-      "phone": "0700402161",
-      "isEdit": false,
-      "id": 2
+      "name": "qwertyui",
+      "phone": "98456123894512",
+      "id": 9
     },
     {
-      "id": 3,
-      "name": "Contact 4",
-      "phone": "0700402161",
-      "isEdit": false
-    },
-    {
-      "id": 4,
-      "name": "Contact 5",
-      "phone": "0700402161",
-      "isEdit": false
-    },
-    {
-      "id": 5,
-      "name": "Contact 6",
-      "phone": "0700402161",
-      "isEdit": false
+      "name": "DAFESRDT",
+      "phone": "+9879845168453",
+      "id": 10
     }
   ]
 }

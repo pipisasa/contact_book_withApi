@@ -1,43 +1,41 @@
 import React from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
 import Cards from '../Cards/Cards'
 import NewContact from '../NewContact/NewContact'
 
+import {
+    openEdit,
+    fetchData
+} from '../../actions/index'
+
 class ContactBook extends React.Component{
-    state = {
-        data:[],
-        inputVal:'',
-        isOpenNewContact: false,
+    constructor(state){
+        super()
+        this.state = state
+    }
+    fetchData = async () => {
+        this.props.dispatch( await fetchData() );
     }
     componentDidMount(){
-        this.fetchData();
-    }
-    fetchData= async ()=>{
-        const response = await axios.get('http://localhost:3000/contacts');
-        this.setState({data: response.data})
+        this.fetchData()
     }
     enterNewContact = async (contact)=>{
-        const data = [...this.state.data];
+        const data = [...this.props.data];
         contact.id = data[data.length-1].id+1;
-        const response = await axios.post('http://localhost:3000/contacts',contact)
-        if(response.statusText==='Created'){this.fetchData()};
+        const response = await axios.post('http://192.168.88.222:3000/contacts',contact)
+        if(response.statusText==='Created') this.fetchData();
     }
-    openEdit = (index)=>{
-        const data = [...this.state.data];
-        data.forEach((item,i)=>{
-            i===index ? data[i].isEdit=!data[i].isEdit : item.isEdit=false;
-        })
-        this.setState({
-            data
-        })
+    openEdit = (i)=>{
+        this.props.dispatch( openEdit(i, this.props.data) )
     }
     deleteContact = async (id)=>{
-        let response = await axios.delete(`http://localhost:3000/contacts/${id}`);
+        let response = await axios.delete(`http://192.168.88.222:3000/contacts/${id}`);
         if(response.statusText==='OK') this.fetchData()
     }
     editContact = async (id, contact)=>{
-        const response = await axios.put(`http://localhost:3000/contacts/${id}`,contact);
+        const response = await axios.put(`http://192.168.88.222:3000/contacts/${id}`,contact);
         if(response.statusText==='OK') this.fetchData()
     }
     openNewContact = ()=>{
@@ -46,13 +44,14 @@ class ContactBook extends React.Component{
         })
     }
     render(){
+        // console.log(this.props)
         return(
             <>  
                 <h1 className="header">ContactBook</h1>
                 {this.state.isOpenNewContact?
                     <NewContact 
                         goBack={this.openNewContact}
-                        data={this.state.data} 
+                        data={this.props.data} 
                         enterNewContact={this.enterNewContact} /> : 
                     <button onClick={this.openNewContact} className="new-contact-open">Add</button>
                 }
@@ -61,11 +60,16 @@ class ContactBook extends React.Component{
                         editContact = {this.editContact}
                         deleteContact = {this.deleteContact}
                         openEdit = {this.openEdit}
-                        data={this.state.data}/>
+                        data={this.props.data}/>
                 </div>
             </>
         )
     }
 }
 
-export default ContactBook;
+const mapStateToProps = state => {
+    return state
+}
+
+export default connect(mapStateToProps)(ContactBook);
+    

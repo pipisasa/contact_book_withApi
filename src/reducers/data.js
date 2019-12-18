@@ -1,6 +1,6 @@
 const data = [
     {
-        "name": "Contact 1",
+        "name": "pipisasa",
         "phone": "0700402161",
         "isEdit": false
     },
